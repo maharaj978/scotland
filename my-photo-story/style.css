@@ -1,0 +1,166 @@
+/* ------------------------------------------------------------------- */
+/* 1. GLOBAL STYLES & VARIABLES
+/* ------------------------------------------------------------------- */
+:root {
+    --vertical-spacing: 2.5rem; 
+    --horizontal-padding: 4vw;
+    --grid-gap: 1.5rem;       
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #ffffff; 
+    font-family: sans-serif;
+}
+
+img {
+    display: block; 
+    width: 100%;    
+}
+
+.story-container {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* NEW: Removes top margin/padding from the very first section */
+.story-container > section:first-child {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+
+/* ------------------------------------------------------------------- */
+/* 2. LAYOUT: FULL-BLEED IMAGE
+/* ------------------------------------------------------------------- */
+.full-bleed {
+    width: 100%;
+    margin-top: var(--vertical-spacing);
+    margin-bottom: var(--vertical-spacing);
+}
+
+/* ------------------------------------------------------------------- */
+/* 3. LAYOUT: IMAGE GRIDS (for 1, 2, 3, 4 columns)
+/* ------------------------------------------------------------------- */
+.grid {
+    display: flex; 
+    gap: var(--grid-gap); 
+    padding: var(--vertical-spacing) var(--horizontal-padding);
+}
+
+.grid-item {
+    flex: 1; 
+    min-width: 0; 
+}
+
+.grid-item img {
+    height: 100%;
+    object-fit: cover; 
+}
+
+/* ------------------------------------------------------------------- */
+/* 4. LAYOUT: PARALLAX BACKGROUND
+/* ------------------------------------------------------------------- */
+.parallax-container {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* --- UPDATED: Specific background images for each parallax section --- */
+#parallax-1 { background-image: url('images/5.jpg'); }
+#parallax-2 { background-image: url('images/10.jpg'); }
+#parallax-3 { background-image: url('images/19.jpg'); }
+#parallax-4 { background-image: url('images/28.jpg'); }
+#parallax-5 { background-image: url('images/44.jpg'); }
+#parallax-6 { background-image: url('images/53.jpg'); }
+
+
+.parallax-spacer {
+    height: 80vh; 
+}
+
+/* ------------------------------------------------------------------- */
+/* 5. FOOTER STYLES
+/* ------------------------------------------------------------------- */
+footer {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    text-align: center;
+    color: #555555;
+    padding: 3rem var(--horizontal-padding);
+}
+
+footer a {
+    color: #111111; 
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ------------------------------------------------------------------- */
+/* 6. THEME TOGGLE & DARK MODE
+/* ------------------------------------------------------------------- */
+
+/* This container lets us position the icon over the image */
+.hero-container {
+    position: relative;
+}
+
+/* Styling for the icon button */
+#theme-toggle {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    padding: 8px;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+}
+
+#theme-toggle svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    fill: #ffffff; /* White icon color */
+    transition: transform 0.3s ease;
+}
+
+#theme-toggle:hover svg {
+    transform: scale(1.1) rotate(15deg);
+}
+
+
+/* --- Dark Mode Styles --- */
+
+/* This is the main dark mode change: the page background */
+body.dark-mode {
+    background-color: #000000;
+}
+
+/* Make the footer text readable in dark mode */
+body.dark-mode footer {
+    color: #a0a0a0; /* Lighter grey for copyright text */
+}
+
+body.dark-mode footer a {
+    color: #ffffff; /* White for the link */
+}
+
+/* Rounded corners for the first hero image */
+.hero-container .full-bleed img {
+    border-radius: 20px 20px 0 0;
+}
